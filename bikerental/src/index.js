@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import './main_style.css';
+import './css/main_style.css';
+import './css/contact.css';
+import './css/service.css';
+import './css/about.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom"
 
