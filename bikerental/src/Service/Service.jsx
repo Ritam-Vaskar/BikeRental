@@ -1,18 +1,33 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Service = () => {
+  const location = useLocation();
+  const time = location.state || {};
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const initialData = [
-      { model: "xyz", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz", cost: 123, img: "/bikerental/public/image/bike.png" }
+      { model: "xyz1", cost: 123, img: "/bikerental/public/image/bike.png" },
+      { model: "xyz2", cost: 123, img: "/bikerental/public/image/bike.png" },
+      { model: "xyz3", cost: 123, img: "/bikerental/public/image/bike.png" },
+      { model: "xyz4", cost: 123, img: "/bikerental/public/image/bike.png" },
+      { model: "xyz5", cost: 123, img: "/bikerental/public/image/bike.png" }
     ];
     setData(initialData);
   }, []); 
+
+  function handleClick(cost) {
+    if(Object.keys(time).length == 0){
+      navigate("/");
+    } else{
+      navigate("/book",{state: { ...time, cost} })
+    }
+  };
+
+
+
 
   return (
     <div>
@@ -26,9 +41,7 @@ const Service = () => {
             <img src={item.img} width="300px" alt={`Bike: ${item.model}`} />
             <h3>{item.model}</h3>
             <p>Rs. {item.cost}/- per Hour</p>
-            <a href="/HTML_V1/bookdetails/book.html">
-              <button className="btn">Book Now</button>
-            </a>
+            <button className="btn" onClick={() => handleClick(item.cost)}>Book Now</button>
           </div>
         ))}
       </div>
