@@ -3,9 +3,6 @@ import React from "react";
 const Home = () => {
 
     return(
-        <>
-        <div id="menu" className="fas fa-bars" />
-        {/*home section*/}
         <section className="home" id="home">
             <h3>WELCOME !!</h3>
             <h1>
@@ -28,7 +25,6 @@ const Home = () => {
             </a>
             </div>
         </section>
-    </>
     );
 }
 
