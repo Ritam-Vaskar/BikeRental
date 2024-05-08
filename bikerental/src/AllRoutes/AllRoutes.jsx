@@ -6,6 +6,7 @@ import Service from "../Service/Service";
 import About from "../About/about";
 import Booking from "../Booking/Booking";
 
+
 export const AllRoutes = () => {
   return(
     <Routes>

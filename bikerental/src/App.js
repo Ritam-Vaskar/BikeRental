@@ -5,6 +5,9 @@ import NavBar from './NavBar/Navbar';
 import { useState, useEffect } from 'react';
 import MobileNavBar from './NavBar/MobileNavbar';
 
+
+//for responsive web design
+
 function App() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimention());
 
@@ -22,7 +25,12 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+//for login
 
+
+
+
+//AllRoutes
 
   return (
     <div className="App">
