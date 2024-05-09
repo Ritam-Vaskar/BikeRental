@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignUp from "../login page/signup";
+import SignUp from "./signup";
 
 const Login = ({ onClose, toggleForm }) => {
   const [username, setUsername] = useState('');

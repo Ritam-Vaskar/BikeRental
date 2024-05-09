@@ -274,10 +274,6 @@ section{
 
 
 @media (max-width:991px){
-    header{
-        left: -150%;
-    }
-
     body{
         padding-left: 0;
     }

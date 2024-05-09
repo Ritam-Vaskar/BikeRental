@@ -18,8 +18,6 @@ const MobileNavBar = () => {
             <div id="menu" className="fas fa-bars" onClick={() => setOpen(!open)} style={{display:open?"none":""}} />
             <SlidingPane
             isOpen={open}
-            closeIcon={<div>Some div containing custom close icon.</div>}
-            title="Hey, it is optional pane title.  I can be React component too."
             from="left"
             width="200px"
             onRequestClose={() => setOpen(!open)}>

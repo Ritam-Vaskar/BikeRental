@@ -9,13 +9,14 @@ const Service = () => {
 
   useEffect(() => {
     const initialData = [
-      { model: "xyz1", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz2", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz3", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz4", cost: 123, img: "/bikerental/public/image/bike.png" },
-      { model: "xyz5", cost: 123, img: "/bikerental/public/image/bike.png" }
+      { model: "xyz1", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false },
+      { model: "xyz2", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false },
+      { model: "xyz3", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false },
+      { model: "xyz4", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: true },
+      { model: "xyz5", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false }
     ];
-    setData(initialData);
+    const filteredData = initialData.filter((item) => !item.isBooked);
+    setData(filteredData);
   }, []); 
 
   function handleClick(cost) {
@@ -37,12 +38,12 @@ const Service = () => {
       </div>
       <div className="box-container">
         {data.map((item) => (
-          <div className="box" key={item.model}>
-            <img src={item.img} width="300px" alt={`Bike: ${item.model}`} />
-            <h3>{item.model}</h3>
-            <p>Rs. {item.cost}/- per Hour</p>
-            <button className="btn" onClick={() => handleClick(item.cost)}>Book Now</button>
-          </div>
+            <div className="box" key={item.model}>
+              <img src={item.img} width="300px" alt={`Bike: ${item.model}`} />
+              <h3>{item.model}</h3>
+              <p>Rs. {item.cost}/- per Hour</p>
+              <button className="btn" onClick={() => handleClick(item.cost)}>Book Now</button>
+            </div>
         ))}
       </div>
     </div>

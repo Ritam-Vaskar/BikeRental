@@ -122,10 +122,6 @@
 
 
 @media (max-width:991px){
-    header{
-        left: -150%;
-    }
-
     body{
         padding: 0;
     }
