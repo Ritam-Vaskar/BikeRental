@@ -35,10 +35,14 @@ const Login = ({ onClose, toggleForm }) => {
               onChange={(e) => setPassword(e.target.value)} 
             />
           </div>
+
+          <div className="signUpBtn">
           <button className='btn' onClick={handleLogin}>Login</button>
+          <button className='btn' onClick={onClose}>Close</button>
+          </div>
           <p>Don't have an account? <a className='login-a' onClick={toggleForm}>Sign up</a></p>
         </div>
-        <button className='btn' onClick={onClose}>Close</button>
+        
       </div>
     </div>
   );

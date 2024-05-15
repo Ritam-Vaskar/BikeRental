@@ -131,8 +131,8 @@ header .navbar ul li a:hover{
 .login-container input[type="text"],
 .login-container input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 7px;
+    margin-top: 2px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -157,6 +157,15 @@ header .navbar ul li a:hover{
 .close:hover{
     background-color: var(--black);
     color: #fff;
+}
+
+.signUpBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -7px;
+    margin-bottom: 4px;
 }
 
 

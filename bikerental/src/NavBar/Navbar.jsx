@@ -25,7 +25,7 @@ const NavBar = ({ clicked }) => {
         <img src={process.env.PUBLIC_URL + "/image/royal-enfield-select-model-rebel-black-1668160539769.jpg"} alt=""/>
         <h3 className="name">BIKIIT</h3>
         <p>Rent Bike As You Like</p>
-        <button className="btn" onClick={toggleLogin}><i class="fa-solid fa-user"></i>   Login</button>
+        <button className="btn" onClick={toggleLogin}><i class="fa-solid fa-user"></i> Login</button>
         {isLoginOpen && ( login ? <Login onClose={handleClose} toggleForm={toggleForm} /> : <SignUp onClose={handleClose} toggleForm={toggleForm} /> )} {/* Correct conditional rendering */}
       </div>
       <NavLink className="navbar" onClick={clicked}>
