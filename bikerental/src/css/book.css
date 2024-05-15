@@ -65,7 +65,7 @@
     display: none;
 }
 
-label{
+.bookPageBtn label{
     padding: 1rem;
     border-radius: 1rem;
     background-color: #e83912;
