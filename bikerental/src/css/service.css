@@ -1,0 +1,22 @@
+.bthbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.homebtn{
+    cursor: pointer;
+    font-weight: 500;
+    display: block;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    background: aliceblue;
+    color: #e83912;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 7px 50px;
+
+}
+.homebtn:hover{
+    background-color: #d40c0c;
+    color: aliceblue;
+}

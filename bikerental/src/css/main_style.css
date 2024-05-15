@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap');
+
+*{
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+     
+    
+}
+
+/* .bg{
+    z-index: -1;
+} */
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    background: linear-gradient(to right, #331D2C 0%, black 100%);
+    
+}
+
+body{
+    
+    overflow-x: hidden;
+    padding-left: 34rem;
+    color: aliceblue;
+    /* background-image: url(/bikerental/public/image/Brand.png);   */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 35rem;
+    background: #e83912;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    color: aliceblue;
+    
+}
+
+header .user img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: .7rem solid #333;
+    margin-top: 1rem;
+    
+}
+
+header .user .name{
+    font-size: 3.5rem;
+    
+}
+
+header .user p{
+    font-size: 2rem;
+}
+
+header .navbar {
+    width: 100%;
+}
+
+header .navbar ul{
+    list-style: none;
+    padding: 1rem 3rem;
+
+}
+
+header .navbar ul li a{
+    display: block;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    background: #331D2C;
+    color: aliceblue;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+
+header .navbar ul li a:hover{
+    background: aliceblue;
+    color: #111;
+}
+
+/* Overlay for the pop-up */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* display: ; Initially hidden */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    padding: 2rem 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(121, 58, 58, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    font-size: 15px;
+    /* display: none; Initially hidden */
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-a{
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.close {
+    background-color: #eee;
+    color: var(--black);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+.close:hover{
+    background-color: var(--black);
+    color: #fff;
+}
+
+
+#menu{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: #333;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    display: none;
+}
+
+section{
+    min-height: 100vh;
+    padding: 1rem;
+    
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding: 0 15rem;
+   
+}
+
+.home h3{
+    font-size: 3.5rem;
+
+}
+
+.home h1 {
+    font-size: 5rem;
+    padding: 1.5rem;
+}
+
+
+.home span{
+    color: #e83912; 
+    
+}
+
+/* input{
+    background: none;
+    cursor: pointer;
+} */
+
+.btn{
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #e83912;
+    color: aliceblue;
+    border: aliceblue 0.7px solid;
+    margin-top: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.home .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    
+}
+.home .time{
+    flex-direction: row;
+    
+}
+
+.home .time i{
+    margin: 5px;
+}
+
+.home .search{
+    cursor: pointer;
+    font-weight: 500;
+    display: block;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    background: aliceblue;
+    color: #e83912;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 7px 50px;
+}
+
+.home .search:hover{
+    background-color: #d40c0c;
+    color: aliceblue;
+
+}
+
+.btn:hover{
+    background-color: #d40c0c;
+    color: aliceblue;
+}
+
+
+
+
+/*media queries*/
+
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+        
+    }
+
+    .home{
+        padding: 1rem 4rem;
+    }
+    
+}
+
+
+@media (max-width:991px){
+    body{
+        padding-left: 0;
+    }
+
+    #menu{
+        display: block;
+    }
+
+    header.toggle{
+        left: 0;
+        
+    }
+
+    
+}
+
+
+@media (max-width:768px){
+    html{
+        font-size: 50%;
+    }
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+}
+
+@media (max-width:400px){
+    header{
+        width: 100vw;
+    }
+
+    .heading{
+        margin: 0 3rem;
+    }
+
+    /* .about .row .counter .box{
+        width: 100%;
+    }
+
+    .education .box-container .box{
+        width: 100%;
+        margin-right: 3rem;
+    }
+
+    .projects .box-container .box{
+        width: 100%;
+    } */
+
+    
+}

@@ -1,0 +1,173 @@
+/* body{
+    background-image: url(/image/Brand.png); 
+} */
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+.heading span{
+    color: #e83912;
+    padding-right: 10px;
+}
+.contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.contact .row .content{
+    flex: 1 1 30rem;
+    padding: 4rem;
+    padding-bottom: 10rem;
+}
+
+.contact .row .content .title{
+    font-size: 2.5rem;
+    color: #e83912;
+    padding: 1rem;
+}
+
+
+.contact .row .content .info h3{
+    padding: 0.6rem;
+    text-transform: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.contact .row .content .info i{
+    padding-right: 1rem;
+}
+
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 1rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
+    
+}
+
+
+
+.contact .row form .box{
+    padding: 1.5rem;
+    margin: 1rem 0;
+    
+    background: rgba(255, 255, 255, 0.078);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    color: aliceblue;
+    text-transform: none;
+    font-size: 1.7rem;
+    width: 100%;
+    border-radius: .6rem;
+}
+
+
+.contact .content .user img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: .7rem solid #333;
+    margin-top: 1rem;
+    
+}
+
+.contact .user .name{
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding-left: 1rem;
+    
+}
+
+.contact .user p{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+/*media queries*/
+
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+        
+    }
+
+    .home{
+        padding: 1rem 4rem;
+    }
+}
+
+
+@media (max-width:991px){
+    body{
+        padding: 0;
+    }
+
+    #menu{
+        display: block;
+    }
+
+    header.toggle{
+        left: 0;
+        
+    }
+
+    
+}
+
+
+@media (max-width:768px){
+    html{
+        font-size: 50%;
+    }
+    
+}
+
+
+@media (max-width:400px){
+    header{
+        width: 100vw;
+    }
+
+    .heading{
+        margin: 0 3rem;
+    }
+
+    .about .row .counter .box{
+        width: 100%;
+    }
+
+    /* .education .box-container .box{
+        width: 100%;
+        margin-right: 3rem;
+    }
+
+    .projects .box-container .box{
+        width: 100%;
+    } */
+
+    
+}

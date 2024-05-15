@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIKIIT</title>
+
+    <!--links-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="/HTML_V1/home page/style.css">
+    <link rel="stylesheet" href="/HTML_V1/bookdetails/book.css">
+    <link rel="stylesheet" href="/HTML_V1/contact page/contact.css">
+</head>
+<body>
+
+
+
+
+<!--contact-->
+
+<section class="contact" id="contact">
+    <h1 class="heading"> <span>booking</span> details</h1>
+
+    <div class="row">
+        <div class="content">
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="/HTML_V1/image/scooty.png" height="200px">
+                    
+            
+                    <div class="booking-details">
+                        <h2>Bike Booking Details</h2>
+                        <table>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>Booking ID</td>
+                                <td>#12345</td>
+                            <!-- </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>John Doe</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>johndoe@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>+1234567890</td>
+                            </tr> -->
+                            <tr>
+                                <td>Booking Date</td>
+                                <td>May 3, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Pickup Time</td>
+                                <td>10:00</td>
+                            </tr>
+                            <tr>
+                                <td>Return time</td>
+                                <td>14:00</td>
+                            </tr>
+                            <tr>
+                                <td>Total Price</td>
+                                <td><div id="totalPrice"></div></td>
+                            </tr>
+                        </table>
+                    </div>
+            
+                    <a href="#"><button class="btn">View Bill</button></a>
+                </div>
+            </div>
+        </div>
+        
+        <form>
+            <h2>Enter Your Details</h2>
+            <input type="text" placeholder="Name" class="box">
+            <input type="email" placeholder="Email" class="box">
+            <input type="tel" placeholder="Mobile No." class="box">
+            <textarea name="" id="" cols="10" rows="5" class="box" placeholder="Instruction"></textarea>
+
+            <div class="back-btn">
+                <div class="book-btn">
+                    <!-- <button input type="file" class="btn">Upload License <i class="fa-solid fa-upload"></i></button> -->
+                    <input type="file" id="file">
+                    <label for="file" class="btn">Upload License <i class="fa-solid fa-upload"></i></label>
+                    <button type="submit" class="btn">Confirm Booking <i class="fa-solid fa-circle-check"></i></button>
+                </div>
+
+                <a href="/HTML_V1/service page/service.html"><button class="btn">Back to Service</button></a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!--jquery cdn link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--custom js file link-->
+
+<script src="/HTML_V1/home page/script.js"></script>
+
+</body>
+</html>
+
+
+
