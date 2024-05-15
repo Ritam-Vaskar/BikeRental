@@ -31,7 +31,7 @@ const Booking = () => {
             <h1 className="heading"> <span>booking</span> details</h1>
 
             <div className="row">
-                <div className="content">
+                <div className="content" id="book-cont">
                     <div className="box-container">
 
                         <div className="box">
@@ -66,27 +66,25 @@ const Booking = () => {
                                 </table>
                             </div>
                     
-                            <button className="btn">View Bill</button>
+                            <button className="btn">View T&C</button>
                         </div>
                     </div>
                 </div>
                 
                 <form>
                     <h2>Enter Your Details</h2>
-                    <input type="text" placeholder="Name" className="box" />
-                    <input type="email" placeholder="Email" className="box" />
-                    <input type="tel" placeholder="Mobile No." className="box" />
+                    {/* <input type="text" placeholder="Name" className="box" />
+                    <input type="email" placeholder="Email" className="box" /> */}
+                    <input type="tel" placeholder="Mobile No.(if any other)" className="box" />
                     <textarea name="" id="" cols="10" rows="5" className="box" placeholder="Instruction" />
 
                     <div className="bookPageBtn">
-                        <div className="book-btn">
-                            {/* <button input type="file" className="btn">Upload License <i className="fa-solid fa-upload"></i></button> */}
-                            <input type="file" id="file" />
-                            <label htmlFor="file" className="btn">Upload License <i className="fa-solid fa-upload"></i></label>
+                        {/* <div className="book-btn"> */}
+                            <Link to='/service'className="btn"><i class="fa-solid fa-circle-left"></i> Back to Service</Link>
                             <button type="submit" className="btn">Confirm Booking <i className="fa-solid fa-circle-check"></i></button>
-                        </div>
+                        {/* </div> */}
 
-                        <Link to='/service'className="btn">Back to Service</Link>
+                        
                     </div>
                 </form>
             </div>
