@@ -10,19 +10,19 @@ const About = () => {
 
       {
         feature: "Online Booking",
-        img: "/bikerental/public/image/f1.png",
+        img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05f6b4de049dc46db4_f1.png",
       },
       {
         feature: "Save Money",
-        img: "/bikerental/public/image/f3.png",
+        img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a057368f71163fdadf7_f3.png",
       },
       {
         feature: "Best Services",
-        img: "/bikerental/public/image/f5.png",
+        img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05a35a1ad891c8e985_f5.png",
       },
       {
         feature: "24/7 Support",
-        img: "/bikerental/public/image/f6.png",
+        img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05ed126fd09deb2309_f6.png",
       },
 
       //offer section
@@ -31,13 +31,13 @@ const About = () => {
         offer: "Today's Deal",
         off:
           "Upto 20% Off",
-        img_off: "/bikerental/public/image/bike.png",
+        img_off: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png",
       },
       {
         offer: "Today's Deal",
         off:
           "Upto 20% Off",
-        img_off: "/bikerental/public/image/bike.png",
+        img_off: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05cb6df16918640141_bike.png",
       },
 
       //customer review
@@ -46,13 +46,13 @@ const About = () => {
         name: "Customer Name",
         about:
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, blanditiis asperiores quidem optio explicabo quo ullam enim ipsum nulla iste quisquam commodi maiores dignissimos deserunt dolores obcaecati possimus pariatur. Doloremque!",
-        img_cus: "/bikerental/public/image/customer.png",
+        img_cus: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a0cd89be2a99f754e14_customer.png",
       },
       {
         name: "Another Customer",
         about:
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, blanditiis asperiores quidem optio explicabo quo ullam enim ipsum nulla iste quisquam commodi maiores dignissimos deserunt dolores obcaecati possimus pariatur. Doloremque!",
-        img_cus: "/bikerental/public/image/customer.png",
+        img_cus: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a0cd89be2a99f754e14_customer.png",
       },
     ];
     setData(initialData);

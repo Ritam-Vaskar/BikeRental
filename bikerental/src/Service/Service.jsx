@@ -9,11 +9,11 @@ const Service = () => {
 
   useEffect(() => {
     const initialData = [
-      { model: "xyz1", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false },
-      { model: "xyz2", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false },
-      { model: "xyz3", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false },
-      { model: "xyz4", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: true },
-      { model: "xyz5", cost: 123, img: "/bikerental/public/image/bike.png", isBooked: false }
+      { model: "xyz1", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png", isBooked: false },
+      { model: "xyz2", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05cb6df16918640141_bike.png", isBooked: false },
+      { model: "xyz3", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png", isBooked: false },
+      { model: "xyz4", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05cb6df16918640141_bike.png", isBooked: true },
+      { model: "xyz5", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png", isBooked: false }
     ];
     const filteredData = initialData.filter((item) => !item.isBooked);
     setData(filteredData);
