@@ -22,7 +22,7 @@ const Booking = () => {
             time = to - from;
         }
         time = Math.round(time/60000);
-        let final_cost = data.cost * (time/60); 
+        let final_cost = data.model.cost * (time/60); 
         return Math.ceil(final_cost);
     }
 
@@ -35,7 +35,7 @@ const Booking = () => {
                     <div className="box-container">
 
                         <div className="box">
-                            <img src="/HTML_V1/image/scooty.png" height="200px" />
+                            <img src={data.model.img} height="200px" />
                             
                     
                             <div className="booking-details">

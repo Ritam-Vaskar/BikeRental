@@ -19,11 +19,11 @@ const Service = () => {
     setData(filteredData);
   }, []); 
 
-  function handleClick(cost) {
+  function handleClick(model) {
     if(Object.keys(time).length == 0){
       navigate("/");
     } else{
-      navigate("/book",{state: { ...time, cost} })
+      navigate("/book",{state: { ...time, model} })
     }
   };
 
@@ -42,7 +42,7 @@ const Service = () => {
               <img src={item.img} width="300px" alt={`Bike: ${item.model}`} />
               <h3>{item.model}</h3>
               <p>Rs. {item.cost}/- per Hour</p>
-              <button className="btn" onClick={() => handleClick(item.cost)}>Book Now</button>
+              <button className="btn" onClick={() => handleClick(item)}>Book Now</button>
             </div>
         ))}
       </div>
