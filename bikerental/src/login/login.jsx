@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { LOGIN_API } from '../api';
+import { Context } from '../context';
 
 const Login = ({ onClose, toggleForm }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loggedin, setloggedin] = useContext(Context);
 
   const handleLogin = () => {
     if (!username || !password) {
@@ -25,7 +27,11 @@ const Login = ({ onClose, toggleForm }) => {
       })
       .then(data => {
         if(data == "Done"){
+          setloggedin({isLoggedIn:true, isAdmin:false})
           console.log("logged in");
+        }
+        if(data == "Admin"){
+          setloggedin({isLoggedIn:true, isAdmin:true})
         }
       })
       .catch(e => console.log("Wrong password"));

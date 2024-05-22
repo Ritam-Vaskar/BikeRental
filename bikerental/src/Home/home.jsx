@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../context";
 
 const Home = () => {
     const navigate = useNavigate();
     const [data ,setData] = useState({date:"" ,from:"", to:""});
+    const [loggedin, setloggedin] = useContext(Context);
+    console.log(loggedin);
 
     function handleChange(e, field){
         let newData = { ...data };
