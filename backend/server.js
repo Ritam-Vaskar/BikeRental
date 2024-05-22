@@ -29,7 +29,8 @@ const UserScema = mongoose.Schema({
     phone:Number,
     name:String,
     password:String,
-    image:String
+    image:String,
+    isadmin:Boolean
 })
 
 const BikeScema = mongoose.Schema({

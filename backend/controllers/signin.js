@@ -8,7 +8,7 @@ const handleSignin = async (req, res, db, bcrypt) => {
     return res.status(400).json("Invalid username");
   }
   if (bcrypt.compareSync(password,data.password)){
-    res.status(200).json("Done");
+    res.status(200).json({isadmin:data.isadmin, id:data.id});
   } else{
     res.status(400).json("Wrong");
   }

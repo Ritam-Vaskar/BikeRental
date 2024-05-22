@@ -26,15 +26,16 @@ const Login = ({ onClose, toggleForm }) => {
         return Promise.reject(res);
       })
       .then(data => {
-        if(data == "Done"){
-          setloggedin({isLoggedIn:true, isAdmin:false})
-          console.log("logged in");
-        }
-        if(data == "Admin"){
+        if(data.isadmin){
           setloggedin({isLoggedIn:true, isAdmin:true})
+          console.log("logged in as admin");
+        }else{
+          setloggedin({isLoggedIn:true, isAdmin:false})
+          console.log("logged in as user");
         }
       })
-      .catch(e => console.log("Wrong password"));
+      .catch(e => console.log("Wrong password"))
+      .finally(() => onClose());
 
       setUsername('');
       setPassword('');
