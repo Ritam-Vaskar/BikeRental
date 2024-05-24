@@ -19,7 +19,7 @@ app.use(express.json({limit: "10mb"}));
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb+srv://sumedh:sumedh@cluster0.fronqdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",{dbName:"text"})
+mongoose.connect("mongodb+srv://22051037:sumedh@cluster0.ljhqyzs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => console.log("connected"))
 .catch((e) => console.log(e));
 

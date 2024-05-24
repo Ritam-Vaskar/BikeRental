@@ -146,7 +146,7 @@ header .navbar ul li a:hover{
 
 .close {
     background-color: #eee;
-    color: var(--black);
+    /* color: var(--black); */
     border: 1px solid #ccc;
     border-radius: 3px;
     padding: 10px 20px;
@@ -155,7 +155,7 @@ header .navbar ul li a:hover{
 
 
 .close:hover{
-    background-color: var(--black);
+    /* background-color: var(--black); */
     color: #fff;
 }
 
@@ -329,18 +329,13 @@ section{
         margin: 0 3rem;
     }
 
-    /* .about .row .counter .box{
-        width: 100%;
+    .login-container{
+        width: 90%;
     }
 
-    .education .box-container .box{
-        width: 100%;
-        margin-right: 3rem;
+    .signUpBtn{
+        flex-wrap: wrap;
     }
-
-    .projects .box-container .box{
-        width: 100%;
-    } */
 
     
 }

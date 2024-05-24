@@ -39,6 +39,7 @@ const NavBar = ({ clicked }) => {
             <Link to='/about'>About</Link>
             <Link to='/service'>Services</Link>
             <Link to='/contacts'>Contact</Link>
+            <Link to='/admin'>Admin page</Link>
             {loggedin.isAdmin?<Link to='/admin'>Admin page</Link>: <></>}
           </li>
         </ul>

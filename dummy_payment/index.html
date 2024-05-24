@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway</title>
+  <!-- Include Razorpay Checkout script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<h1>Checkout</h1>
+
+<div id="payment-container">
+  <button id="pay-button">Pay Now</button>
+</div>
+
+<script>
+  var options = {
+    "key": "YOUR_RAZORPAY_KEY",
+    "amount": 50000, // amount in the smallest currency unit (in this case, 50000 paise = ₹500)
+    "currency": "INR",
+    "name": "Your Company Name",
+    "description": "Purchase Description",
+    "image": "https://your-company-logo.png", // optional
+    "order_id": "order_123456789", // Replace with actual order ID generated from your server
+    "handler": function (response){
+        alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+        // You can handle the payment success event here (e.g., update order status, redirect to thank you page)
+    },
+    "prefill": {
+        "name": "John Doe", // Replace with actual user's name
+        "email": "john.doe@example.com", // Replace with actual user's email
+        "contact": "9876543210" // Replace with actual user's contact number
+    },
+    "theme": {
+        "color": "#F37254" // Replace with your preferred color
+    }
+  };
+
+  var rzp = new Razorpay(options);
+
+  document.getElementById('pay-button').onclick = function(e){
+      rzp.open();
+      e.preventDefault();
+  }
+</script>
+
+</body>
+</html>

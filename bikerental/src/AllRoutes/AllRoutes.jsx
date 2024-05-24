@@ -5,6 +5,7 @@ import Contacts from "../Contact/Contact";
 import Service from "../Service/Service";
 import About from "../About/about";
 import Booking from "../Booking/Booking";
+import Admin from "../Admin/admin";
 
 
 export const AllRoutes = () => {
@@ -15,6 +16,7 @@ export const AllRoutes = () => {
       <Route path="/service" element={ <Service /> } />
       <Route path="/about" element={ <About /> } />
       <Route path="/book" element={ <Booking /> } />
+      <Route path="/admin" element={ <Admin /> } />
     </Routes>
 
   );

@@ -165,9 +165,9 @@ th {
 
 
 @media (max-width:991px){
-    header{
+    /* header{
         left: -150%;
-    }
+    } */
 
     body{
         padding: 0;
