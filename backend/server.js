@@ -8,6 +8,8 @@ import handleRegister from './controllers/register.js';
 import handleSignin from './controllers/signin.js';
 import addBike from './controllers/addBike.js';
 import handleBooking from './controllers/booking.js';
+import handlegetbike from './controllers/getbike.js';
+import { ObjectId } from 'mongodb';
 
 
 
@@ -15,7 +17,7 @@ const port = 3001;
 const app = express();
 
 app.use(express.urlencoded({extended: false}));
-app.use(express.json({limit: "10mb"}));
+app.use(express.json({limit: "1mb"}));
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -34,20 +36,18 @@ const UserScema = mongoose.Schema({
 })
 
 const BikeScema = mongoose.Schema({
-    bikeid:Number,
     Model:String,
-    colour:String,
     image:String,
     cost:Number,
-    Booked_from:String,
-    Booked_to:String
 })
 
 const BookingsScema = mongoose.Schema({
-    bikeid:Number,
+    bikeid:ObjectId,
     username:String,
-    Booked_from:String,
-    Booked_to:String
+    mobile:Number,
+    from:String,
+    to:String,
+    date:String
 })
 
 const user = mongoose.model("users",UserScema);
@@ -59,6 +59,7 @@ app.post("/register", (req, res) => { handleRegister(req, res, user, bcrypt ) })
 app.post("/signin", (req,res) => { handleSignin(req, res, user, bcrypt) });
 app.post("/book", (req,res) => { handleBooking(req, res, bookings, bike) });
 app.post("/addbike", (req,res) => { addBike(req, res, bike) });
+app.post("/getbike", (req,res) => { handlegetbike(req, res, bike, bookings) })
 
 app.listen(port, ()=> {
     console.log('app is running on port ',{port});

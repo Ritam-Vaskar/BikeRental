@@ -29,7 +29,7 @@ const NavBar = ({ clicked }) => {
         <p>Rent Bike As You Like</p>
         {!loggedin.isLoggedIn 
         ? <button className="btn" onClick={toggleLogin}><i class="fa-solid fa-user"></i> Login</button>
-        : <></>}
+        : <button className="btn"><i class="fa-solid fa-user"></i>  {loggedin.account.name}</button>}
         {isLoginOpen && ( loginpage ? <Login onClose={handleClose} toggleForm={toggleForm} /> : <SignUp onClose={handleClose} toggleForm={toggleForm} /> )}
       </div>
       <NavLink className="navbar" onClick={clicked}>
@@ -39,7 +39,7 @@ const NavBar = ({ clicked }) => {
             <Link to='/about'>About</Link>
             <Link to='/service'>Services</Link>
             <Link to='/contacts'>Contact</Link>
-            <Link to='/admin'>Admin page</Link>
+            {/* <Link to='/admin'>Admin page</Link> temp link */}
             {loggedin.isAdmin?<Link to='/admin'>Admin page</Link>: <></>}
           </li>
         </ul>

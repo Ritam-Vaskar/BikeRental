@@ -1,9 +1,15 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Context } from "../context";
+import { toast } from "react-toastify";
+import { BOOKING_API } from "../api";
 
 const Booking = () => {
     const location = useLocation();
     const data = location.state;
+    const navigate = useNavigate();
+    const [loggedin] = useContext(Context);
+    const [number, setnumber] = useState(0);
 
     function convertToTime(str){
         const time = new Date();
@@ -26,6 +32,32 @@ const Booking = () => {
         return Math.ceil(final_cost);
     }
 
+    function handleSubmit(){
+        if(!loggedin.isLoggedIn){
+            return toast.warning("Please loggin first");
+        }
+        toast.promise(
+            fetch(BOOKING_API, {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({from: data.from, to: data.to, date: data.date, bikeid: data.model._id, username:loggedin.account.name, number: number})}
+            )
+            .then(res => {
+                if (res.ok) {
+                  return res.json();
+                }
+                return Promise.reject(res);
+            })
+            .finally(() => navigate("/")),{
+            pending: 'Booking ...',
+            success: 'Successfull Booked',
+            error: 'Some error occured'
+        })
+    }
+
     return(
         <section className="contact" id="contact">
             <h1 className="heading"> <span>booking</span> details</h1>
@@ -35,7 +67,7 @@ const Booking = () => {
                     <div className="box-container">
 
                         <div className="box">
-                            <img src={data.model.img} height="200px" />
+                            <img src={data.model.image} height="150px" />
                             
                     
                             <div className="booking-details">
@@ -80,8 +112,8 @@ const Booking = () => {
 
                     <div className="bookPageBtn">
                         {/* <div className="book-btn"> */}
-                            <Link to='/service'className="btn"><i class="fa-solid fa-circle-left"></i> Back to Service</Link>
-                            <button type="submit" className="btn">Confirm Booking <i className="fa-solid fa-circle-check"></i></button>
+                            <button onClick={() => navigate("/service",{state:{to:data.to, from:data.from, date:data.date}})} className="btn"><i class="fa-solid fa-circle-left"></i> Back to Service</button>
+                            <button type="submit" className="btn" onClick={(e) => { e.preventDefault(); handleSubmit() }}>Confirm Booking <i className="fa-solid fa-circle-check"></i></button>
                         {/* </div> */}
 
                         

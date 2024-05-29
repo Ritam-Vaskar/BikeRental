@@ -11,7 +11,8 @@ const handleRegister = (req, res, db, bcrypt) => {
     phone:phone,
     name:name,
     image:dl,
-    password:hash
+    password:hash,
+    isadmin:false
   })
   .then(() => res.status(200).json("Created"))
   .catch((e) => res.status(400).json(e));

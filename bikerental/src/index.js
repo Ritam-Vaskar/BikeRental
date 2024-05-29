@@ -8,6 +8,7 @@ import './css/service.css';
 import './css/about.css';
 import './css/book.css';
 import './css/admin.css';
+import 'react-toastify/dist/ReactToastify.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom"
 

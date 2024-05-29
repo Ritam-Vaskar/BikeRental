@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { LOGIN_API } from '../api';
 import { Context } from '../context';
+import { toast } from 'react-toastify';
 
 const Login = ({ onClose, toggleForm }) => {
   const [username, setUsername] = useState('');
@@ -9,8 +10,9 @@ const Login = ({ onClose, toggleForm }) => {
 
   const handleLogin = () => {
     if (!username || !password) {
-      console.log("fill all details");
+      toast.error("Please fill all data");
     }else {
+      toast.promise(
       fetch(LOGIN_API , {
         method: 'POST',
         headers: {
@@ -26,19 +28,18 @@ const Login = ({ onClose, toggleForm }) => {
         return Promise.reject(res);
       })
       .then(data => {
-        if(data.isadmin){
-          setloggedin({isLoggedIn:true, isAdmin:true})
-          console.log("logged in as admin");
-        }else{
-          setloggedin({isLoggedIn:true, isAdmin:false})
-          console.log("logged in as user");
-        }
+        setloggedin({isLoggedIn:true, isAdmin:data.isadmin,account:{name:data.name,id:data.id}});
+        console.log("logged in");
       })
-      .catch(e => console.log("Wrong password"))
-      .finally(() => onClose());
-
-      setUsername('');
-      setPassword('');
+      .finally(() => {
+        setPassword('');
+        setUsername('');
+        onClose()
+      }), {
+        pending: 'Logging in',
+        success: 'LogIn Successfull',
+        error: 'Invalid username or password'
+      });
     }
 
   };

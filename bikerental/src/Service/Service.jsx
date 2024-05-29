@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { GETBIKE_API } from "../api";
 
 const Service = () => {
   const location = useLocation();
@@ -8,19 +10,23 @@ const Service = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const initialData = [
-      { model: "xyz1", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png", isBooked: false },
-      { model: "xyz2", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05cb6df16918640141_bike.png", isBooked: false },
-      { model: "xyz3", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png", isBooked: false },
-      { model: "xyz4", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a05cb6df16918640141_bike.png", isBooked: true },
-      { model: "xyz5", cost: 123, img: "https://uploads-ssl.webflow.com/66465997f6b4de049dc435bf/66465a065392b6bc6cd6ef57_scooty.png", isBooked: false }
-    ];
-    const filteredData = initialData.filter((item) => !item.isBooked);
-    setData(filteredData);
+    fetch(GETBIKE_API, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({time:time})
+    })
+    .then(res => res.json())
+    .then(res => {
+      setData(res);
+      console.log(res);
+    })
   }, []); 
 
   function handleClick(model) {
-    if(Object.keys(time).length == 0){
+    if(Object.keys(time).length === 0){
       navigate("/");
     } else{
       navigate("/book",{state: { ...time, model} })
@@ -37,12 +43,14 @@ const Service = () => {
         <h1>Now</h1>
       </div>
       <div className="box-container">
-        {data.map((item) => (
-            <div className="box" key={item.model}>
-              <img src={item.img} width="300px" alt={`Bike: ${item.model}`} />
-              <h3>{item.model}</h3>
+        {data.map((item,index) => (
+            <div className="box" key={index}>
+              <img src={item.image} width="300px" alt={`Bike: ${item.model}`} />
+              <h3>{item.Model}</h3>
               <p>Rs. {item.cost}/- per Hour</p>
-              <button className="btn" onClick={() => handleClick(item)}>Book Now</button>
+              {item.__v
+              ?<button className="btn" style={{color: "#111"}} onClick={() => toast.warning("Alredy booked")}>Booked</button>
+              :<button className="btn" onClick={() => handleClick(item)}>Book Now</button>}
             </div>
         ))}
       </div>

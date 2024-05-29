@@ -1,6 +1,8 @@
 // SignUp.js
 import React, { useState } from 'react';
 import { REGISTER_API } from '../api';
+import { toast } from 'react-toastify';
+import { handleUploadImage } from '../fuction';
 
 const SignUp = ({onClose,  toggleForm }) => {
   const [username, setUsername] = useState('');
@@ -10,11 +12,10 @@ const SignUp = ({onClose,  toggleForm }) => {
   const [image, setImage] = useState('');
 
   const handleSignUp = () => {
-    // Implement your sign-up logic here
     if (!email || !mobile || !username || !password || !image) {
-      console.log("fill all data");
-      //error on frontend
+      toast.error("Please fill all data");
     } else{
+      toast.promise(
       fetch(REGISTER_API , {
         method: 'POST',
         headers: {
@@ -23,39 +24,20 @@ const SignUp = ({onClose,  toggleForm }) => {
         },
         body: JSON.stringify({email:email , phone: mobile, name: username, dl: image,  password: password})
       })
-      .then(res => res.json())
-      .then(res => console.log(res))
-      .catch(e => console.log(e));
-
-      setUsername("");
-      setPassword("");
-      setImage("");
-      setEmail("");
-      setMobile("");
-
+      .finally(() => {
+        setUsername("");
+        setPassword("");
+        setImage("");
+        setEmail("");
+        setMobile("");
+        onClose();
+      }),{
+        pending: 'Siging in ',
+        success: 'Succesfull please log in',
+        error: 'Some error occured'
+      })
     }
-
-
   };
-
-  const imagebase64 = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    const data = new Promise((resolve,reject) => {
-      reader.onload = () => {resolve(reader.result)}
-      reader.onerror = (err) => reject(err)
-    })
-    return data
-  }
-
-  const handleUploadImage = async (e) => {
-    const file = e.target.files[0];
-    const image = await imagebase64(file);
-    setImage(image);
-    console.log(image);
-  }
-
-
 
   return (
     <div className="overlay">
@@ -96,7 +78,7 @@ const SignUp = ({onClose,  toggleForm }) => {
           </div>
           <div className="signUpBtn">
           <div className="book-btn">
-          <input type="file" id="file" onChange={handleUploadImage} />
+          <input type="file" id="file" onChange={(e) => handleUploadImage(e).then(res => setImage(res))} />
           <label htmlFor="file" className="btn">Upload License <i className="fa-solid fa-upload"></i></label>
           </div>
           <button className='btn' onClick={handleSignUp}>Sign Up</button>

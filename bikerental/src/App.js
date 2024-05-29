@@ -5,6 +5,7 @@ import NavBar from './NavBar/Navbar';
 import { useState, useEffect } from 'react';
 import MobileNavBar from './NavBar/MobileNavbar';
 import { Context } from './context';
+import { Bounce, ToastContainer } from 'react-toastify'
 
 
 //for responsive web design
@@ -42,6 +43,19 @@ function App() {
         
         <AllRoutes />
       </div>
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeButton
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      />
     </Context.Provider>
   );
 }
