@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../login/login";
-import SignUp from "../login/signup"; // Make sure to import SignUp component if it's used here.
+import SignUp from "../login/signup";
 import { Context } from "../context";
+import { toast } from "react-toastify";
 
 const NavBar = ({ clicked }) => {
   const [isLoginOpen, setLoginOpen] = useState(false);
-  const [loginpage , setloginpage] = useState(true);
+  const [loginPage, setLoginPage] = useState(true);
   const [loggedin, setloggedin] = useContext(Context);
 
   const toggleLogin = () => {
@@ -18,7 +19,13 @@ const NavBar = ({ clicked }) => {
   };
 
   const toggleForm = () => {
-    setloginpage(!loginpage);
+    setLoginPage(!loginPage);
+  };
+
+  const handleLogout = () => {
+    setloggedin({ isLoggedIn: false, isAdmin: false, account: {} });
+    toast.success("Logged out successfully");
+    console.log("logged out");
   };
 
   return (
@@ -28,9 +35,15 @@ const NavBar = ({ clicked }) => {
         <h3 className="name">BIKIIT</h3>
         <p>Rent Bike As You Like</p>
         {!loggedin.isLoggedIn 
-        ? <button className="btn" onClick={toggleLogin}><i class="fa-solid fa-user"></i> Login</button>
-        : <button className="btn"><i class="fa-solid fa-user"></i>  {loggedin.account.name}</button>}
-        {isLoginOpen && ( loginpage ? <Login onClose={handleClose} toggleForm={toggleForm} /> : <SignUp onClose={handleClose} toggleForm={toggleForm} /> )}
+          ? <button className="btn" onClick={toggleLogin}><i className="fa-solid fa-user"></i> Login</button>
+          : (
+            <>
+              <button className="btn"><i className="fa-solid fa-user"></i> {loggedin.account.name}</button>
+              <button className="btn" onClick={handleLogout}><i className="fa-solid fa-sign-out-alt"></i> Logout</button>
+            </>
+          )
+        }
+        {isLoginOpen && (loginPage ? <Login onClose={handleClose} toggleForm={toggleForm} /> : <SignUp onClose={handleClose} toggleForm={toggleForm} />)}
       </div>
       <NavLink className="navbar" onClick={clicked}>
         <ul>
@@ -39,8 +52,7 @@ const NavBar = ({ clicked }) => {
             <Link to='/about'>About</Link>
             <Link to='/service'>Services</Link>
             <Link to='/contacts'>Contact</Link>
-            {/* <Link to='/admin'>Admin page</Link> temp link */}
-            {loggedin.isAdmin?<Link to='/admin'>Admin page</Link>: <></>}
+            {loggedin.isAdmin ? <Link to='/admin'>Admin page</Link> : null}
           </li>
         </ul>
       </NavLink>
